@@ -748,6 +748,7 @@ function finder:open_preview()
   local lang = require('nvim-treesitter.parsers').ft_to_lang(vim.bo[self.main_buf].filetype)
   if fn.has('nvim-0.9') then
     vim.treesitter.start(data.bufnr, lang)
+    vim.bo[data.bufnr].syntax = 'on'
   else
     vim.bo[data.bufnr].syntax = 'on'
     pcall(
